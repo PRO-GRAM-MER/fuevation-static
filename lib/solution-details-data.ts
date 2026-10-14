@@ -4,6 +4,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "electronics-value-recovery": {
     slug: "electronics-value-recovery",
     pageName: "Electronics Value Recovery",
+    card: {
+      num: "01",
+      title: "Strategic Value Realization",
+      subtitle: "Electronics Value Recovery",
+      desc: "Comprehensive evaluation, grading, and routing that maximizes economic recovery from mixed electronic asset streams, ensuring each product achieves the optimal yield across its lifecycle.",
+      icon: "/images/sol-icon-01-value-recovery.svg",
+    },
     metaTitle: "Electronics Value Recovery Solutions",
     metaDescription:
       "Recover maximum value from excess, returned, damaged and end-of-life electronics through refurbishment, liquidation, parts recovery and recycling.",
@@ -13,14 +20,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/hero-lifecycle.webp",
       alt: "Electronics Lifecycle Visual Donut",
-      width: 849,
-      height: 849,
+      width: 850,
+      height: 850,
     },
     problemTitle: "Why Value Recovery Matters",
     problemText:
       "Excess, returned, ageing, damaged and end-of-life electronics can create inventory pressure, working-capital lock-up and disposal challenges. The right recovery strategy can turn these assets into renewed commercial and material value.",
     approachText:
-      "Fuevation brings a focused solution for electronics value recovery, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for electronics value recovery, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "Comprehensive Recovery Pathways",
     scopeItems: [
       { icon: "/images/solutions/evr/scope-01.svg", label: "Excess & Obsolete Inventory" },
@@ -99,6 +106,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "inventory-liquidation": {
     slug: "inventory-liquidation",
     pageName: "Electronics Inventory Liquidation",
+    card: {
+      num: "02",
+      title: "Unlock Working Capital",
+      subtitle: "Inventory Liquidation Solutions",
+      desc: "Convert excess inventory, customer returns, DOA units, slow-moving inventory, and obsolete models into recovered capital via transparent, controlled B2B marketplace liquidation.",
+      icon: "/images/sol-icon-02-liquidation.svg",
+    },
     metaTitle: "Electronics Inventory Liquidation",
     metaDescription:
       "Liquidate excess, obsolete, returned and slow-moving electronics through refurbishment, remarketing and B2B recovery.",
@@ -108,14 +122,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/inventory-liquidation-hero.webp",
       alt: "Electronics Liquidation Process",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "The Need for Electronics Inventory Liquidation",
     problemText:
-      "Ageing inventory can tie up working capital, consume storage capacity and lose value as products, models and market demand change. Fuevation helps businesses address electronics inventory liquidation as a value-recovery challenge-not simply a disposal exercise.",
+      "Ageing inventory can tie up working capital, consume storage capacity and lose value as products, models and market demand change. Fuevation helps businesses address electronics inventory liquidation as a value-recovery challenge—not simply a disposal exercise.",
     approachText:
-      "Fuevation brings a focused solution for electronics inventory liquidation, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for electronics inventory liquidation, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "Comprehensive Liquidation Pathways",
     scopeItems: [
       { icon: "/images/solutions/liq/scope-01.svg", label: "Excess Stock" },
@@ -194,6 +208,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "electronics-refurbishment": {
     slug: "electronics-refurbishment",
     pageName: "Electronics Refurbishment",
+    card: {
+      num: "03",
+      title: "Extend Product Life",
+      subtitle: "Electronics Refurbishment",
+      desc: "Restore functional electronics through diagnostics, precision repair, cosmetic restoration, and certified grading to maximize secondary market resale value and extend usable device life.",
+      icon: "/images/sol-icon-03-refurbishment.svg",
+    },
     metaTitle: "Electronics Refurbishment Services",
     metaDescription:
       "Extend device life and recover value through diagnostics, repair, refurbishment, grading and resale.",
@@ -203,14 +224,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/electronics-refurbishment-hero.webp",
       alt: "Electronics Refurbishment",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "The Value of Electronics Refurbishment",
     problemText:
       "Returned, used and damaged electronics are often treated as low-value assets even when they can continue serving users after appropriate restoration. Fuevation supports electronics refurbishment programs designed to extend product life and recover commercial value.",
     approachText:
-      "Fuevation brings a focused solution for electronics refurbishment, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for electronics refurbishment, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Refurbish",
     scopeItems: [
       { icon: "/images/solutions/refurb/scope-01.svg", label: "Smartphones & Devices" },
@@ -289,6 +310,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "excess-inventory-management": {
     slug: "excess-inventory-management",
     pageName: "Excess Electronics Inventory Management",
+    card: {
+      num: "04",
+      title: "Prevent Inventory Value Decay",
+      subtitle: "Excess Inventory Management",
+      desc: "Active inventory clearance strategies for OEMs, distributors, and retailers dealing with surplus stock, cancelled orders, and shelf pullbacks before assets depreciate or become obsolete.",
+      icon: "/images/sol-icon-04-excess-inventory.svg",
+    },
     metaTitle: "Excess Electronics Inventory Management",
     metaDescription:
       "Recover working capital from excess electronics inventory through assessment, refurbishment, remarketing, liquidation and responsible recovery.",
@@ -297,14 +325,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/excess-inventory-hero.webp",
       alt: "Excess electronics inventory management and value recovery",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "Excess Inventory Management",
     problemText:
       "Demand changes, product transitions, procurement decisions and channel dynamics can leave businesses holding more electronics inventory than they need. Fuevation helps create a structured value-recovery program before further ageing reduces potential.",
     approachText:
-      "Fuevation brings a focused solution for excess electronics inventory, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for excess electronics inventory, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/excess/scope-01.svg", label: "Surplus Inventory" },
@@ -383,6 +411,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "eol-inventory-management": {
     slug: "eol-inventory-management",
     pageName: "EOL Electronics Inventory Management",
+    card: {
+      num: "05",
+      title: "Recover Value Beyond Product EOL",
+      subtitle: "EOL Inventory Management",
+      desc: "Systematic asset teardown, testing, parts salvage, and responsible recycling for discontinued, legacy, and non-working electronics, extracting remaining value before certified disposal.",
+      icon: "/images/sol-icon-05-eol-inventory.svg",
+    },
     metaTitle: "EOL Electronics Inventory Management",
     metaDescription:
       "Manage EOL electronics through a reuse-first recovery process covering refurbishment, liquidation, parts harvesting and recycling.",
@@ -391,14 +426,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/eol-electronics-inventory-recovery.webp",
       alt: "EOL electronics inventory recovery",
-      width: 1684,
-      height: 932,
+      width: 1685,
+      height: 933,
     },
     problemTitle: "Managing the Value of End-of-Life Inventory",
     problemText:
       "When products are discontinued or reach the end of their planned commercial lifecycle, inventory can become harder to sell and increasingly exposed to obsolescence. Fuevation helps preserve remaining commercial, component and material value.",
     approachText:
-      "Fuevation brings a focused solution for EOL inventory management, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for EOL inventory management, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/eol/scope-01.svg", label: "Discontinued Products" },
@@ -477,6 +512,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "e-waste-management": {
     slug: "e-waste-management",
     pageName: "Corporate E-Waste Management",
+    card: {
+      num: "06",
+      title: "Responsible Asset Decommissioning",
+      subtitle: "Corporate E-Waste Management",
+      desc: "Secure enterprise IT asset disposition (ITAD) featuring certified data destruction, serialized audit trails, green certificates, and compliant recycling for corporate IT hardware.",
+      icon: "/images/sol-icon-06-corporate-ewaste.svg",
+    },
     metaTitle: "Corporate E-Waste Management & Recycling",
     metaDescription:
       "End-to-end e-waste management covering collection, reverse logistics, recovery, recycling and traceability.",
@@ -485,14 +527,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/corporate-ewaste-hero.webp",
       alt: "Corporate e-waste management and responsible electronics recycling",
-      width: 500,
-      height: 500,
+      width: 1273,
+      height: 1236,
     },
     problemTitle: "Why Responsible E-Waste Management Matters",
     problemText:
       "Organizations generate electronics waste across devices, IT equipment, accessories, batteries, components and end-of-life assets. Fuevation helps manage electronics at end of life while supporting responsible recovery, recycling and lifecycle closure.",
     approachText:
-      "Fuevation brings a focused solution for e-waste management, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for e-waste management, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/ewaste/scope-01.svg", label: "Corporate Electronics" },
@@ -571,22 +613,29 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "epr-compliance": {
     slug: "epr-compliance",
     pageName: "EPR Compliance",
+    card: {
+      num: "07",
+      title: "Simplify Environmental Compliance",
+      subtitle: "EPR Compliance",
+      desc: "Turn Extended Producer Responsibility (EPR) regulations into a competitive advantage with certified collection targets, CPCB portal integration, audit-proof reporting, and credit fulfillment.",
+      icon: "/images/sol-icon-07-epr-compliance.svg",
+    },
     metaTitle: "EPR Compliance Services for Electronics",
     metaDescription:
       "EPR support across e-waste, battery and circularity requirements, reporting, traceability and responsible recovery.",
     heroTitle: "End-to-End EPR Compliance for Electronics",
-    heroDesc: "Make electronics EPR a connected business process-not just a compliance task.",
+    heroDesc: "Make electronics EPR a connected business process—not just a compliance task.",
     heroImage: {
       src: "/images/epr-compliance-hero.webp",
       alt: "E-waste EPR compliance support",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "Why EPR Compliance Matters for Businesses",
     problemText:
       "EPR programs can involve multiple stakeholders, documentation requirements, reporting obligations and recovery activities. Fuevation supports electronics businesses with EPR-related compliance and recovery requirements.",
     approachText:
-      "Fuevation brings a focused solution for EPR compliance, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for EPR compliance, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Cover",
     scopeItems: [
       { icon: "/images/solutions/epr/scope-01.svg", label: "E-Waste EPR" },
@@ -664,22 +713,29 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "reverse-logistics": {
     slug: "reverse-logistics",
     pageName: "Electronics Reverse Logistics",
+    card: {
+      num: "08",
+      title: "Build Smarter Reverse Supply Chains",
+      subtitle: "Electronics Reverse Logistics",
+      desc: "Operate specialized reverse logistics networks with end-to-end serialized tracking, fast pickup turnaround, custody transfer control, and optimized routing across all major hubs in India.",
+      icon: "/images/sol-icon-08-reverse-logistics.svg",
+    },
     metaTitle: "Reverse Logistics for Electronics",
     metaDescription:
       "Electronics reverse logistics covering collection, returns, movement, traceability and value recovery.",
     heroTitle: "Reverse Logistics Built for Electronics Recovery",
-    heroDesc: "Move electronics back into the value chain-not simply back to a warehouse.",
+    heroDesc: "Move electronics back into the value chain—not simply back to a warehouse.",
     heroImage: {
       src: "/images/reverse-logistics-hero.webp",
       alt: "Electronic Reverse Logistics",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "The Importance of Efficient Reverse Logistics",
     problemText:
       "Electronics returns, damaged goods, excess stock and end-of-life assets require more than transportation. Fuevation supports reverse logistics programs designed around electronics recovery and asset visibility.",
     approachText:
-      "Fuevation brings a focused solution for electronics reverse logistics, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for electronics reverse logistics, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/rl/scope-01.svg", label: "Returns" },
@@ -757,6 +813,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "parts-harvesting": {
     slug: "parts-harvesting",
     pageName: "Electronics Parts Harvesting",
+    card: {
+      num: "09",
+      title: "Maximize Component Recovery",
+      subtitle: "Electronics Parts Harvesting",
+      desc: "Harvest and test functional components—such as displays, motherboards, camera modules, sensors, and power units—from damaged or end-of-life devices to reintroduce high-demand OEM spare parts.",
+      icon: "/images/sol-icon-09-parts-harvesting.svg",
+    },
     metaTitle: "Electronics Parts Harvesting & Component Recovery",
     metaDescription:
       "Recover usable components through structured assessment, harvesting, grading and reuse pathways.",
@@ -765,14 +828,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/parts-harvesting-hero.webp",
       alt: "Parts Harvesting",
-      width: 500,
-      height: 500,
+      width: 800,
+      height: 800,
     },
     problemTitle: "Unlocking Value Through Parts Harvesting",
     problemText:
       "When a complete electronics product is no longer commercially viable, valuable components can still remain within the asset. Fuevation supports component recovery opportunities before assets move to material recycling.",
     approachText:
-      "Fuevation brings a focused solution for parts harvesting, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for parts harvesting, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/parts/scope-01.svg", label: "Electronic Components" },
@@ -850,6 +913,13 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
   "battery-recycling": {
     slug: "battery-recycling",
     pageName: "Battery Recycling & Recovery",
+    card: {
+      num: "10",
+      title: "Recover Critical Materials Safely",
+      subtitle: "Battery Recycling & Recovery",
+      desc: "Safe collection, handling, and closed-loop material extraction for lithium-ion and device batteries, reclaiming high-grade cobalt, lithium, and nickel with environmental compliance.",
+      icon: "/images/sol-icon-10-battery-recycling.svg",
+    },
     metaTitle: "Battery Recycling & Recovery Solutions",
     metaDescription:
       "Battery recovery and recycling solutions with traceability, compliance and responsible processing.",
@@ -858,14 +928,14 @@ export const SOLUTION_DETAILS: Record<string, SolutionDetail> = {
     heroImage: {
       src: "/images/battery-recycling-hero.webp",
       alt: "Battery Recovery",
-      width: 500,
-      height: 500,
+      width: 850,
+      height: 850,
     },
     problemTitle: "Why Battery Recovery & Responsible Recycling Matters",
     problemText:
       "Batteries require responsible end-of-life management because they contain recoverable materials and require appropriate handling throughout their lifecycle. Fuevation supports battery recovery and recycling programs within a broader electronics lifecycle ecosystem.",
     approachText:
-      "Fuevation brings a focused solution for battery recycling, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets-without exposing the proprietary mechanisms behind the service.",
+      "Fuevation brings a focused solution for battery recycling, helping businesses address the commercial, operational and lifecycle challenges associated with their electronics assets.",
     scopeTitle: "What We Handle",
     scopeItems: [
       { icon: "/images/solutions/battery/scope-01.svg", label: "Consumer Electronics Batteries" },

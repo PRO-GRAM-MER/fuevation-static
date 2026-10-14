@@ -1,3 +1,5 @@
+import { EYEBROW } from "@/components/ui/styles";
+
 const METRICS = [
   { num: "500,000+", label: "Orders Processed Every Month" },
   { num: "82,000 MTPA", label: "Installed Recycling Capacity" },
@@ -14,7 +16,7 @@ export function ImpactSection() {
     <section id="impact" className="bg-white py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 text-center">
-          <div className="text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={EYEBROW}>
             Our Impact
           </div>
           <h2 className="text-[1.8rem] font-bold text-primary">

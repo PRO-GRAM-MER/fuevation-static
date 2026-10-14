@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EYEBROW } from "@/components/ui/styles";
 
 const DIFFERENTIATORS = [
   {
@@ -32,7 +33,7 @@ export function AboutSection() {
     <section id="about" className="bg-white py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:gap-4">
-          <div className="text-center text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={`text-center ${EYEBROW}`}>
             Introducing Fuevation
           </div>
 
@@ -99,7 +100,7 @@ export function AboutSection() {
                     <div className="mt-0.5 flex shrink-0 items-center justify-center lg:mt-0">
                       <Image
                         src={item.icon}
-                        alt={item.alt}
+                        alt=""
                         width={50}
                         height={50}
                         className="h-[50px] w-[50px]"

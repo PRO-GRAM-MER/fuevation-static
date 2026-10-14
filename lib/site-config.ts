@@ -1,9 +1,20 @@
 export const SITE_NAME = "Fuevation";
 export const SITE_URL = "https://fuevation.com";
 
-// Dummy placeholders — swap via env vars once real GTM/GA4 IDs exist, no code change needed.
-export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MPVXSRQX";
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-CE972TT69Y";
+/** Absolute production URL for a route, with the trailing slash the static export serves. */
+export function absoluteUrl(path: string) {
+  return `${SITE_URL}${path === "/" ? "/" : `${path.replace(/\/$/, "")}/`}`;
+}
+
+// "preview" builds (the GitHub Pages copy) are noindex and load no analytics,
+// so preview traffic never reaches the production GTM/GA4 properties.
+export const IS_PREVIEW = process.env.NEXT_PUBLIC_SITE_ENV === "preview";
+
+// Analytics only loads when an ID is provided at build time (see README → Configuration).
+export const GTM_ID = IS_PREVIEW ? "" : process.env.NEXT_PUBLIC_GTM_ID || "";
+export const GA_ID = IS_PREVIEW ? "" : process.env.NEXT_PUBLIC_GA_ID || "";
+
+export const HOME_TITLE = `${SITE_NAME} | Circular Electronics Value Recovery`;
 
 export const SITE_DESCRIPTION =
   "Fuevation (featuring MobiGarage) is India's leading circular electronics value recovery platform. We enable brands, OEMs, and enterprises to maximize recovery through refurbishment, parts harvesting, and recycling.";
@@ -15,7 +26,7 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   { label: "About", href: "/#about" },
-  { label: "Solutions", href: "/#capabilities" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Framework", href: "/#framework" },
   { label: "Technology", href: "/#technology" },
   { label: "Why Us", href: "/#why-choose" },
@@ -25,19 +36,10 @@ export const NAV_LINKS: NavLink[] = [
 export const QUICK_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
-  { label: "Solutions", href: "/#capabilities" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/#industries" },
-  { label: "FrameWork", href: "/#framework" },
+  { label: "Framework", href: "/#framework" },
   { label: "Technology", href: "/#technology" },
-];
-
-export const SOLUTIONS_LINKS: NavLink[] = [
-  { label: "Refurbishment", href: "/solutions/electronics-refurbishment" },
-  { label: "Liquidation", href: "/solutions/inventory-liquidation" },
-  { label: "Parts Harvesting", href: "/solutions/parts-harvesting" },
-  { label: "Reverse Logistics", href: "/solutions/reverse-logistics" },
-  { label: "EPR Compliance", href: "/solutions/epr-compliance" },
-  { label: "Recycling", href: "/solutions/battery-recycling" },
 ];
 
 export const CONTACT = {

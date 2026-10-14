@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EYEBROW } from "@/components/ui/styles";
 
 const INDUSTRIES = [
   { icon: "/images/icon-ind-oems.svg", alt: "Electronics Manufacturers", title: "Electronics Manufacturers (OEMs & ODMs)" },
@@ -17,7 +18,7 @@ export function IndustriesSection() {
     <section id="industries" className="bg-white py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3 text-center">
-          <div className="text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={EYEBROW}>
             Industries We Serve
           </div>
           <h2 className="text-[1.8rem] font-bold leading-[1.25] text-primary">
@@ -32,7 +33,7 @@ export function IndustriesSection() {
               className="flex w-full flex-none items-center gap-5 rounded-xl border border-border bg-white p-8 sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)]"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center">
-                <Image src={ind.icon} alt={ind.alt} width={40} height={40} className="h-10 w-10" />
+                <Image src={ind.icon} alt="" width={40} height={40} className="h-10 w-10" />
               </div>
               <h3 className="text-[0.95rem] font-semibold text-primary">{ind.title}</h3>
             </div>

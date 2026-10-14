@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EYEBROW } from "@/components/ui/styles";
 
 const HIGHLIGHTS = [
   {
@@ -48,7 +49,7 @@ export function FutureSection() {
     <section id="future" className="bg-bg-light py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3">
-          <div className="text-center text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={`text-center ${EYEBROW}`}>
             The Future of Electronics is Circular
           </div>
 
@@ -98,7 +99,7 @@ export function FutureSection() {
                 className={`flex items-center gap-4 border-border p-6 lg:flex-col lg:items-center lg:gap-3 lg:text-center ${rowDivider} ${midRowDivider} lg:border-t-0 ${colDivider}`}
               >
                 <div className="flex shrink-0 items-center justify-center p-3">
-                  <Image src={item.icon} alt={item.alt} width={60} height={60} className="h-[60px] w-[60px]" />
+                  <Image src={item.icon} alt="" width={60} height={60} className="h-[60px] w-[60px]" />
                 </div>
                 <p className="text-[0.85rem] leading-[1.6] text-text-muted">{item.text}</p>
               </div>

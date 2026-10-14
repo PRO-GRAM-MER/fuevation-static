@@ -2,22 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroSection } from "@/components/sections/hero-section";
-import { ExpertContactTrigger } from "@/components/expert-contact/expert-contact-trigger";
 import { SOLUTIONS } from "@/lib/solutions-data";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
+import { pageMetadata } from "@/lib/metadata";
+import { EYEBROW } from "@/components/ui/styles";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { CtaBand } from "@/components/ui/cta-band";
 
 const DESCRIPTION =
   "Explore Fuevation electronics lifecycle solutions including refurbishment, value recovery, inventory liquidation, reverse logistics and responsible recycling.";
 
 export const metadata: Metadata = {
   title: "Electronics Lifecycle Solutions",
-  description: DESCRIPTION,
-  alternates: { canonical: "/solutions" },
-  openGraph: {
+  ...pageMetadata({
     title: "Electronics Lifecycle Solutions",
     description: DESCRIPTION,
-    images: [{ url: "/images/sol-hero.webp", width: 850, height: 850, alt: "Electronics Lifecycle Solutions" }],
-  },
+    path: "/solutions",
+    image: { src: "/images/sol-hero.webp", alt: "Electronics Lifecycle Solutions" },
+  }),
 };
 
 export default function SolutionsPage() {
@@ -30,21 +32,7 @@ export default function SolutionsPage() {
         ])}
       />
 
-      <div className="hidden bg-white pt-[14px] pb-[14px] lg:block">
-        <nav aria-label="Breadcrumb" className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
-          <ol className="flex items-center gap-2 text-[0.85rem] text-text-muted">
-            <li>
-              <Link href="/" className="text-[#888] transition-colors hover:text-accent">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-[#ccc]">/</li>
-            <li aria-current="page" className="font-medium text-primary">
-              Solutions
-            </li>
-          </ol>
-        </nav>
-      </div>
+      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} />
 
       <HeroSection
         heading={
@@ -69,7 +57,7 @@ export default function SolutionsPage() {
       <section id="capabilities" className="bg-white py-12 md:py-16">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-180 flex-col gap-3 text-center">
-            <div className="text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+            <div className={EYEBROW}>
               Our Capabilities
             </div>
             <h2 className="text-[1.8rem] font-bold text-primary">
@@ -88,7 +76,7 @@ export default function SolutionsPage() {
               <Link
                 key={sol.slug}
                 href={`/solutions/${sol.slug}`}
-                className="group flex w-full flex-none flex-col gap-3 rounded-2xl border border-[#eef0f4] bg-white p-6 transition-colors hover:border-accent hover:shadow-[0_8px_30px_rgba(255,111,63,0.1)] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+                className="group flex w-full flex-none flex-col gap-3 rounded-2xl border border-[#eef0f4] bg-white p-6 transition-colors hover:border-accent hover:shadow-[0_8px_30px_rgba(194,65,12,0.1)] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 <div className="flex items-center justify-between">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent/8 text-[0.82rem] font-bold text-accent">
@@ -107,22 +95,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-4 text-center">
-        <div className="mx-auto flex max-w-[1280px] flex-col gap-6 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[1.8rem] font-bold text-primary">
-            Ready to recover more value from your electronics assets?
-          </h2>
-          <p className="text-base leading-[1.7] text-text-muted">
-            Tell us what you are looking to recover, manage or optimize. Our
-            team will help identify the right solution.
-          </p>
-          <div className="flex justify-center">
-            <ExpertContactTrigger location="solutions_listing_final_cta" className="inline-flex items-center justify-center rounded-lg bg-accent px-9 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_rgba(255,111,63,0.25)] transition-colors hover:bg-accent-hover">
-              Talk to Our Experts
-            </ExpertContactTrigger>
-          </div>
-        </div>
-      </section>
+      <CtaBand location="solutions_listing_final_cta" className="py-4" />
     </>
   );
 }

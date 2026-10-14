@@ -4,6 +4,7 @@ import { SolutionDetailTemplate } from "@/components/solutions/solution-detail-t
 import { SOLUTION_DETAILS } from "@/lib/solution-details-data";
 import { JsonLd, breadcrumbJsonLd, serviceJsonLd, faqPageJsonLd } from "@/lib/json-ld";
 import { SolutionPageView } from "@/components/analytics/solution-page-view";
+import { pageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return Object.keys(SOLUTION_DETAILS).map((slug) => ({ slug }));
@@ -17,24 +18,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const data = SOLUTION_DETAILS[slug];
   if (!data) return {};
-  const title = data.metaTitle ?? data.pageName;
-  const description = data.metaDescription ?? data.heroDesc;
   return {
-    title,
-    description,
-    alternates: { canonical: `/solutions/${slug}` },
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: data.heroImage.src,
-          width: data.heroImage.width,
-          height: data.heroImage.height,
-          alt: data.heroImage.alt,
-        },
-      ],
-    },
+    title: data.metaTitle ?? data.pageName,
+    ...pageMetadata({
+      title: data.metaTitle ?? data.pageName,
+      description: data.metaDescription ?? data.heroDesc,
+      path: `/solutions/${slug}`,
+      image: data.heroImage,
+    }),
   };
 }
 

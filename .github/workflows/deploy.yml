@@ -17,18 +17,30 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**', 'components/**', 'lib/**') }}
+          restore-keys: nextjs-${{ hashFiles('package-lock.json') }}-
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # GitHub Pages is a preview of the site: noindex and no analytics.
+          # For the production build, set the SITE_ENV repository variable to
+          # "production" and add GTM_ID / GA_ID repository variables.
+          NEXT_PUBLIC_SITE_ENV: ${{ vars.SITE_ENV || 'preview' }}
+          NEXT_PUBLIC_GTM_ID: ${{ vars.GTM_ID }}
+          NEXT_PUBLIC_GA_ID: ${{ vars.GA_ID }}
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -37,6 +49,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

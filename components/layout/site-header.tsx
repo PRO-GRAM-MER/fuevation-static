@@ -1,17 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CONTACT, NAV_LINKS } from "@/lib/site-config";
 import { ExpertContactTrigger } from "@/components/expert-contact/expert-contact-trigger";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const isSolutionsActive = pathname.startsWith("/solutions");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const closeMenuRef = useRef<HTMLButtonElement>(null);
+  useFocusTrap(drawerRef, menuOpen, closeMenuRef);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -72,7 +76,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <ExpertContactTrigger location="header" className="hidden items-center justify-center rounded-lg bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(255,111,63,0.25)] transition-colors hover:bg-accent-hover lg:inline-flex">
+        <ExpertContactTrigger location="header" className="hidden items-center justify-center rounded-lg bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(194,65,12,0.25)] transition-colors hover:bg-accent-hover lg:inline-flex">
           Talk to Our Experts
         </ExpertContactTrigger>
 
@@ -81,7 +85,7 @@ export function SiteHeader() {
           className={`relative flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 lg:hidden ${
             menuOpen ? "hidden" : ""
           }`}
-          aria-label="Toggle navigation"
+          aria-label="Open navigation"
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((open) => !open)}
@@ -101,27 +105,8 @@ export function SiteHeader() {
         }`}
       />
 
-      {menuOpen && (
-        <div
-          className={`fixed top-0 right-0 z-[71] flex items-center pr-4 transition-[height] duration-300 sm:pr-6 lg:hidden ${
-            scrolled ? "h-[70px]" : "h-[60px]"
-          }`}
-        >
-          <button
-            type="button"
-            onClick={() => setMenuOpen(false)}
-            aria-label="Close navigation"
-            className="flex h-10 w-10 items-center justify-center text-white"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-      )}
-
       <div
+        ref={drawerRef}
         id="mobile-nav"
         role="dialog"
         aria-modal="true"
@@ -132,11 +117,23 @@ export function SiteHeader() {
         }`}
       >
         <div
-          className={`flex items-center border-b border-primary/10 bg-white/95 px-4 shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur transition-[height] duration-300 ${
+          className={`flex items-center justify-between border-b border-primary/10 bg-white/95 px-4 shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur transition-[height] duration-300 ${
             scrolled ? "h-[70px]" : "h-[60px]"
           }`}
         >
           <Image src="/images/logo-header.png" alt="Fuevation" width={167} height={44} className="h-7 w-auto" />
+          <button
+            ref={closeMenuRef}
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close navigation"
+            className="flex h-10 w-10 items-center justify-center text-primary"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <nav aria-label="Mobile primary" className="flex flex-1 flex-col gap-4 px-4 py-4">
