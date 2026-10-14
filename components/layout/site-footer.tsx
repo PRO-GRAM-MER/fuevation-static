@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT, QUICK_LINKS, SOLUTIONS_LINKS, type NavLink } from "@/lib/site-config";
+import { CONTACT, QUICK_LINKS, type NavLink } from "@/lib/site-config";
+import { SOLUTIONS_LINKS } from "@/lib/solutions-data";
 
 function LogoBlock() {
   return (
@@ -14,7 +15,7 @@ function LogoBlock() {
           className="h-9 w-auto"
         />
       </Link>
-      <span className="block text-[0.9rem] font-bold text-accent">
+      <span className="block text-[0.9rem] font-bold text-accent-bright">
         Reuse First. Recovery Always.
       </span>
       <p className="text-[0.85rem] leading-[1.6]">

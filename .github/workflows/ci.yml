@@ -1,0 +1,36 @@
+name: CI
+
+# Checks every pull request before it can reach main (a push to main deploys).
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**', 'components/**', 'lib/**') }}
+          restore-keys: nextjs-${{ hashFiles('package-lock.json') }}-
+      - run: npm ci
+      - run: npm run lint
+      - run: npx next typegen && npx tsc --noEmit
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_ENV: preview
+          NEXT_PUBLIC_BASE_PATH: /fuevation-static

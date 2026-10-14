@@ -1,10 +1,10 @@
 // Window.dataLayer is already declared by @next/third-parties/google.
 
 /**
- * Pushes a custom event to the GTM dataLayer. GTM/GA4 are wired with dummy
- * IDs (see lib/site-config.ts) — events fire now, but nothing is actually
- * collected until real container/measurement IDs replace the dummies and
- * matching triggers are configured in the GTM workspace.
+ * Pushes a custom event to the GTM dataLayer. Events are only collected when
+ * GTM/GA4 are loaded, i.e. a production build with NEXT_PUBLIC_GTM_ID /
+ * NEXT_PUBLIC_GA_ID set (see lib/site-config.ts), and matching triggers are
+ * configured in the GTM workspace.
  */
 export function trackEvent(event: string, params: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;

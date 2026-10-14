@@ -3,8 +3,11 @@
 @theme {
   --font-sans: var(--font-poppins);
   --color-primary: #2f3567;
-  --color-accent: #ff6f3f;
-  --color-accent-hover: #e55b2b;
+  /* Accent for text and button fills: #c2410c is 5.18:1 on white (WCAG AA).
+     The original brand orange (#ff6f3f, 2.76:1) is kept for decorative use only. */
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+  --color-accent-bright: #ff6f3f;
   --color-bg-light: #f8fafc;
   --color-border: #e2e8f0;
   --color-text-dark: #0f172a;
@@ -31,4 +34,10 @@ button:not(:disabled) {
 
 .animate-marquee-ltr {
   animation: marquee-ltr 25s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-ltr {
+    animation: none;
+  }
 }

@@ -10,10 +10,15 @@ import { WhyChooseSection } from "@/components/sections/why-choose-section";
 import { ImpactSection } from "@/components/sections/impact-section";
 import { LeadershipSection } from "@/components/sections/leadership-section";
 import { CtaSection } from "@/components/sections/cta-section";
+import { pageMetadata } from "@/lib/metadata";
+import { HOME_TITLE, SITE_DESCRIPTION } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: HOME_TITLE,
+  description: SITE_DESCRIPTION,
+  path: "/",
+  image: { src: "/images/hero-lifecycle.webp", alt: HOME_TITLE },
+});
 
 export default function Home() {
   return (

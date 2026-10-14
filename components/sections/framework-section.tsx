@@ -1,3 +1,5 @@
+import { EYEBROW } from "@/components/ui/styles";
+
 const STEPS = [
   {
     num: "01",
@@ -52,7 +54,7 @@ function StepCircle({ num }: { num: string }) {
 function StepCard({ step }: { step: (typeof STEPS)[number] }) {
   return (
     <div className="w-full max-w-[220px] rounded-xl border border-border bg-bg-light p-4 lg:w-full lg:max-w-none">
-      <div className="text-[0.95rem] font-semibold text-primary">{step.name}</div>
+      <h3 className="text-[0.95rem] font-semibold text-primary">{step.name}</h3>
       <p className="mt-1 text-[0.85rem] leading-[1.6] text-text-muted">{step.desc}</p>
     </div>
   );
@@ -63,7 +65,7 @@ export function FrameworkSection() {
     <section id="framework" className="bg-white py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-16 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 text-center">
-          <div className="text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={EYEBROW}>
             The Fuevation Lifecycle Intelligence Framework&trade;
           </div>
           <h2 className="text-[1.8rem] font-bold text-primary">

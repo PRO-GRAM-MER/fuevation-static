@@ -1,10 +1,9 @@
-import { SITE_NAME, SITE_URL } from "@/lib/site-config";
+import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site-config";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   );
@@ -45,7 +44,7 @@ export function breadcrumbJsonLd(entries: BreadcrumbEntry[]) {
       "@type": "ListItem",
       position: i + 1,
       name: entry.name,
-      item: `${SITE_URL}${entry.path}`,
+      item: absoluteUrl(entry.path),
     })),
   };
 }
@@ -62,10 +61,10 @@ export function serviceJsonLd({
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/solutions/${slug}#service`,
+    "@id": `${absoluteUrl(`/solutions/${slug}`)}#service`,
     name,
     description,
-    url: `${SITE_URL}/solutions/${slug}`,
+    url: absoluteUrl(`/solutions/${slug}`),
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: "IN",
   };

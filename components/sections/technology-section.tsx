@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EYEBROW } from "@/components/ui/styles";
 
 const TECH_CARDS = [
   {
@@ -37,7 +38,7 @@ export function TechnologySection() {
   return (
     <section id="technology" className="bg-bg-light py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-4 sm:px-6 lg:px-8">
-        <div className="text-center text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+        <div className={`text-center ${EYEBROW}`}>
           Our Technology
         </div>
 
@@ -68,7 +69,7 @@ export function TechnologySection() {
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center">
-                    <Image src={card.icon} alt={card.title} width={32} height={32} className="h-8 w-8" />
+                    <Image src={card.icon} alt="" width={32} height={32} className="h-8 w-8" />
                   </div>
                   <h3 className="text-[0.95rem] font-semibold text-primary">{card.title}</h3>
                 </div>

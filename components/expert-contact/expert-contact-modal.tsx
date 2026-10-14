@@ -5,10 +5,13 @@ import Image from "next/image";
 import { useExpertContact } from "@/lib/expert-contact-context";
 import { CONTACT } from "@/lib/site-config";
 import { trackContactFormStart, trackLeadGenerated } from "@/lib/analytics";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 export function ExpertContactModal() {
   const { isOpen, closeModal } = useExpertContact();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(dialogRef, isOpen, closeButtonRef);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -20,12 +23,10 @@ export function ExpertContactModal() {
 
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
-    const focusTimer = setTimeout(() => closeButtonRef.current?.focus(), 50);
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
-      clearTimeout(focusTimer);
     };
   }, [isOpen, closeModal]);
 
@@ -40,6 +41,7 @@ export function ExpertContactModal() {
       }}
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="expert-contact-title"
@@ -52,7 +54,7 @@ export function ExpertContactModal() {
           type="button"
           aria-label="Close contact modal"
           onClick={closeModal}
-          className="absolute right-0 top-0 flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-[#f2f2f2] text-[28px] leading-none text-primary transition-colors hover:bg-accent-hover hover:text-white"
+          className="absolute right-3 top-3 flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-[#f2f2f2] text-[28px] leading-none text-primary transition-colors hover:bg-accent-hover hover:text-white"
         >
           &times;
         </button>
@@ -75,7 +77,7 @@ export function ExpertContactModal() {
               className="flex items-center gap-4 rounded-2xl border border-[#e5e5e5] p-4 text-left text-primary transition-colors hover:border-accent sm:p-[18px]"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#e55b2b]">
-                <Image src="/images/icon-phone.svg" alt="phone icon" width={23} height={23} className="h-[23px] w-[23px]" />
+                <Image src="/images/icon-phone.svg" alt="" width={23} height={23} className="h-[23px] w-[23px]" />
               </span>
               <span className="flex min-w-0 flex-1 flex-col items-start justify-center gap-1">
                 <strong className="block text-[17px] font-semibold">Call Us</strong>
@@ -89,7 +91,7 @@ export function ExpertContactModal() {
               className="flex items-center gap-4 rounded-2xl border border-[#e5e5e5] p-4 text-left text-primary transition-colors hover:border-accent sm:p-[18px]"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[#e55b2b]">
-                <Image src="/images/icon-mail.svg" alt="mail icon" width={23} height={23} className="h-[23px] w-[23px]" />
+                <Image src="/images/icon-mail.svg" alt="" width={23} height={23} className="h-[23px] w-[23px]" />
               </span>
               <span className="flex min-w-0 flex-1 flex-col items-start justify-center gap-1">
                 <strong className="block text-[17px] font-semibold">Email Us</strong>

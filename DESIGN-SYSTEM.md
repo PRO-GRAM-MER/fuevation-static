@@ -1,6 +1,7 @@
 # Fuevation Design System
 
-> Source of truth: `index.html` + `index.css`
+> Source of truth: the `@theme` tokens in `app/globals.css` and the shared class strings in `components/ui/styles.ts`.
+> This guide was first written for the earlier static HTML site (`index.html` + `index.css`); the values below still describe the design, but component class names (e.g. `.btn-primary`) refer to that old CSS.
 
 ---
 
@@ -11,7 +12,9 @@
 | Token | Hex | Usage |
 |---|---|---|
 | `--color-primary` | `#2f3567` | Navy — header text, headings, dark backgrounds, footer |
-| `--color-accent` | `#ff6f3f` | Orange — CTAs, highlights, eyebrow labels, stat numbers |
+| `--color-accent` | `#c2410c` | Orange — CTAs, highlights, eyebrow labels, stat numbers. 5.18:1 on white (WCAG AA) |
+| `--color-accent-hover` | `#9a3412` | Hover state for accent buttons and links |
+| `--color-accent-bright` | `#ff6f3f` | Original brand orange. **Decorative use only** (glows, text on the dark footer); 2.76:1 on white fails AA for text |
 | `--color-bg-white` | `#ffffff` | Page background, cards |
 | `--color-bg-light` | `#f8fafc` | Alternate section backgrounds |
 | `--color-border` | `#e2e8f0` | Card borders, dividers, timeline line |
@@ -42,9 +45,9 @@
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--primary-orange` | `#ff6f3f` | Primary button fill |
-| `--primary-orange-hover` | `#e55b2b` | Primary button hover |
-| `--primary-orange-glow` | `rgba(255, 111, 63, 0.25)` | Primary button shadow glow |
+| `--primary-orange` | `#c2410c` (`bg-accent`) | Primary button fill (was `#ff6f3f`, changed for contrast) |
+| `--primary-orange-hover` | `#9a3412` (`bg-accent-hover`) | Primary button hover |
+| `--primary-orange-glow` | `rgba(194, 65, 12, 0.25)` | Primary button shadow glow |
 
 ### Border Colors
 
@@ -60,7 +63,7 @@
 | Background | `#12173a` |
 | Text color | `#94a3b8` |
 | Heading color | `#ffffff` |
-| Tagline color | `#ff6f3f` (accent) |
+| Tagline color | `#ff6f3f` (`accent-bright`, 6.28:1 on the footer) |
 
 ---
 

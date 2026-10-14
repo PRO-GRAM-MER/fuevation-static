@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ExpertContactTrigger } from "@/components/expert-contact/expert-contact-trigger";
+import { BUTTON_PRIMARY } from "@/components/ui/styles";
 
 export function CtaSection() {
   return (
@@ -12,7 +13,7 @@ export function CtaSection() {
           </h2>
           <Image
             src="/images/cta-footer-left.webp"
-            alt="Left Banner"
+            alt="Smartphone circuit boards and a battery encircled by a green leaf, symbolising circular electronics"
             width={220}
             height={220}
             className="h-auto w-full rounded-2xl md:h-[320px] md:object-cover"
@@ -26,12 +27,12 @@ export function CtaSection() {
           <p className="text-base font-bold text-accent md:text-[1.1rem]">
             Let&apos;s start the conversation.
           </p>
-          <ExpertContactTrigger location="homepage_final_cta" className="inline-flex items-center justify-center rounded-lg bg-accent px-9 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_rgba(255,111,63,0.25)] transition-colors hover:bg-accent-hover">
+          <ExpertContactTrigger location="homepage_final_cta" className={BUTTON_PRIMARY}>
             Talk to Our Experts
           </ExpertContactTrigger>
           <Image
             src="/images/cta-plant-right.webp"
-            alt="Plant Image"
+            alt="Hands holding soil with a young green seedling"
             width={220}
             height={220}
             className="h-auto w-full rounded-2xl md:h-[320px] md:object-cover"
@@ -43,7 +44,7 @@ export function CtaSection() {
           <div className="min-w-[260px] flex-1">
             <Image
               src="/images/cta-footer-left.webp"
-              alt="Left Banner"
+              alt="Smartphone circuit boards and a battery encircled by a green leaf, symbolising circular electronics"
               width={260}
               height={400}
               className="h-full w-full object-cover"
@@ -63,7 +64,7 @@ export function CtaSection() {
             <p className="text-[1.1rem] font-bold text-accent">
               Let&apos;s start the conversation.
             </p>
-            <ExpertContactTrigger location="homepage_final_cta" className="inline-flex items-center justify-center rounded-lg bg-accent px-9 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_rgba(255,111,63,0.25)] transition-colors hover:bg-accent-hover">
+            <ExpertContactTrigger location="homepage_final_cta" className={BUTTON_PRIMARY}>
               Talk to Our Experts
             </ExpertContactTrigger>
           </div>
@@ -71,7 +72,7 @@ export function CtaSection() {
           <div className="min-w-[260px] flex-1">
             <Image
               src="/images/cta-plant-right.webp"
-              alt="Plant Image"
+              alt="Hands holding soil with a young green seedling"
               width={260}
               height={400}
               className="h-full w-full object-cover"

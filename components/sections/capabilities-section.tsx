@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BUTTON_PRIMARY, EYEBROW } from "@/components/ui/styles";
 
 const CAPABILITIES = [
   {
     num: "01",
+    slug: "electronics-refurbishment",
     title: "Extend Product Life",
     subtitle: "Refurbishment & Repair",
     desc: "We restore functional electronics to extend their usable life, maximize resale value, and reduce the environmental impact.",
@@ -11,6 +13,7 @@ const CAPABILITIES = [
   },
   {
     num: "02",
+    slug: "inventory-liquidation",
     title: "Unlock Working Capital",
     subtitle: "Liquidation Solutions",
     desc: "Transform excess inventory, returns, DOA units and obsolete stock into recovered value through remarketing & liquidation.",
@@ -18,6 +21,7 @@ const CAPABILITIES = [
   },
   {
     num: "03",
+    slug: "parts-harvesting",
     title: "Maximize Component Recovery",
     subtitle: "Parts Harvesting",
     desc: "Recover reusable components from damaged and end-of-life devices, extending the value of products.",
@@ -25,6 +29,7 @@ const CAPABILITIES = [
   },
   {
     num: "04",
+    slug: "e-waste-management",
     title: "Recover Critical Materials Responsibly",
     subtitle: "Recycling",
     desc: "When reuse isn't possible, we recover valuable materials responsibly through environmentally sound recycling.",
@@ -32,6 +37,7 @@ const CAPABILITIES = [
   },
   {
     num: "05",
+    slug: "epr-compliance",
     title: "Simplify Compliance",
     subtitle: "EPR & Circularity",
     desc: "End-to-end EPR compliance, traceability, reporting & responsible end-of-life management.",
@@ -39,6 +45,7 @@ const CAPABILITIES = [
   },
   {
     num: "06",
+    slug: "reverse-logistics",
     title: "Build Smarter Reverse Supply Chains",
     subtitle: "Collection, Logistics & Recovery",
     desc: "Trace & operate efficient reverse logistics networks that improve visibility and maximize recovery.",
@@ -51,7 +58,7 @@ export function CapabilitiesSection() {
     <section id="capabilities" className="bg-bg-light py-12 md:py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 text-center">
-          <div className="text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+          <div className={EYEBROW}>
             How We Create Value – Our Capabilities
           </div>
           <h2 className="text-[1.8rem] font-bold text-primary">
@@ -68,27 +75,28 @@ export function CapabilitiesSection() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {CAPABILITIES.map((cap) => (
-            <div
+            <Link
               key={cap.num}
-              className="flex flex-col gap-2 rounded-lg border border-border bg-white p-4 text-left shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
+              href={`/solutions/${cap.slug}`}
+              className="flex flex-col gap-2 rounded-lg border border-border bg-white p-4 text-left shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-colors hover:border-accent"
             >
               <div className="flex items-center justify-between">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/8 text-[0.85rem] font-extrabold text-accent">
                   {cap.num}
                 </span>
-                <Image src={cap.icon} alt="Capability Icon" width={60} height={60} className="h-[60px] w-[60px]" />
+                <Image src={cap.icon} alt="" width={60} height={60} className="h-[60px] w-[60px]" />
               </div>
               <h3 className="text-[0.95rem] font-extrabold leading-[1.3] text-primary">{cap.title}</h3>
-              <h4 className="text-[0.75rem] font-extrabold leading-[1.3] text-accent">{cap.subtitle}</h4>
+              <p className="text-[0.75rem] font-extrabold leading-[1.3] text-accent">{cap.subtitle}</p>
               <p className="text-[0.85rem] leading-[1.5] text-text-muted">{cap.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
 
         <div className="flex justify-center">
           <Link
             href="/solutions"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-9 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_24px_rgba(255,111,63,0.25)] transition-colors hover:bg-accent-hover"
+            className={`gap-2 ${BUTTON_PRIMARY}`}
           >
             <span>Explore All Solutions</span>
             <svg

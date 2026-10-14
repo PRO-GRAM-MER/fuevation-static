@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EYEBROW } from "@/components/ui/styles";
 
 const REASONS = [
   {
@@ -31,7 +32,7 @@ export function WhyChooseSection() {
   return (
     <section id="why-choose" className="bg-bg-light py-12 md:py-16">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-4 sm:px-6 lg:px-8">
-        <div className="text-center text-[0.85rem] font-extrabold uppercase tracking-[0.15em] text-accent">
+        <div className={`text-center ${EYEBROW}`}>
           Why Us
         </div>
 
@@ -47,7 +48,7 @@ export function WhyChooseSection() {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#fff5f0]">
                     <Image
                       src="/images/icon-cap-epr.svg"
-                      alt="check-icon"
+                      alt=""
                       width={22}
                       height={22}
                       className="h-[22px] w-[22px]"
