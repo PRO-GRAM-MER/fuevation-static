@@ -4,7 +4,7 @@
 
 Marketing website for **Fuevation**, which helps brands, OEMs, retailers and enterprises get the most value out of electronics through refurbishment, liquidation, parts recovery, reverse logistics, recycling and EPR compliance.
 
-The site is plain static HTML, CSS and JavaScript with no build step, hosted on GitHub Pages. The repo also contains a work-in-progress Next.js version, described [below](#nextjs-version-work-in-progress).
+Built with Next.js 16, React 19 and Tailwind CSS v4, exported as static HTML and hosted on GitHub Pages.
 
 ---
 
@@ -13,7 +13,7 @@ The site is plain static HTML, CSS and JavaScript with no build step, hosted on 
 | Page | Path |
 |------|------|
 | Home | [`/`](https://pro-gram-mer.github.io/fuevation-static/) |
-| Solutions overview | [`/solutions.html`](https://pro-gram-mer.github.io/fuevation-static/solutions.html) |
+| Solutions overview | [`/solutions/`](https://pro-gram-mer.github.io/fuevation-static/solutions/) |
 | Electronics Value Recovery | [`/solutions/electronics-value-recovery/`](https://pro-gram-mer.github.io/fuevation-static/solutions/electronics-value-recovery/) |
 | Electronics Refurbishment | [`/solutions/electronics-refurbishment/`](https://pro-gram-mer.github.io/fuevation-static/solutions/electronics-refurbishment/) |
 | Inventory Liquidation | [`/solutions/inventory-liquidation/`](https://pro-gram-mer.github.io/fuevation-static/solutions/inventory-liquidation/) |
@@ -27,67 +27,54 @@ The site is plain static HTML, CSS and JavaScript with no build step, hosted on 
 
 ## Features
 
-- **Shared header, footer and CTA:** `components.js` fetches them from `components/*.html` at runtime and rewrites their links, so they work at the domain root or under a sub-path such as GitHub Pages.
-- **"Talk to an expert" modal:** a self-contained widget in `expert-contact/`.
-- **SEO:** canonical URLs, Open Graph and Twitter cards, JSON-LD, `sitemap.xml` and `robots.txt`.
-- **Analytics:** Google Tag Manager and GA4 event tracking via `analytics.js`.
-- **PWA manifest:** `manifest.json`.
-- **Responsive layout:** Outfit, Plus Jakarta Sans and Poppins from Google Fonts.
+- **Data-driven solution pages:** one template (`components/solutions/solution-detail-template.tsx`) renders all ten pages from `lib/solution-details-data.ts`.
+- **"Talk to an expert" modal:** `components/expert-contact/`.
+- **SEO:** per-page metadata, canonical URLs, Open Graph and Twitter cards, JSON-LD (`lib/json-ld.tsx`), plus a generated `sitemap.xml` and `robots.txt`.
+- **Analytics:** Google Tag Manager and GA4 via `@next/third-parties`, with event helpers in `lib/analytics.ts`.
 
 ## Project structure
 
 ```
 .
-├── index.html                 # Home page
-├── index.css                  # Global / home styles
-├── main.js                    # Home page interactions
-├── components.js              # Loads shared header / footer / CTA
-├── analytics.js               # GTM + GA4 tracking
-├── components/                # header.html, footer.html, cta.html
-├── solutions.html             # Solutions overview
-├── solutions.css
-├── solutions/
-│   ├── <solution>/index.html  # One folder per solution page
-│   └── <solution>.css         # Per-page styles
-├── expert-contact/            # Contact modal (HTML / CSS / JS)
-├── assets/                    # Images, logos, icons
-├── sitemap.xml, robots.txt, manifest.json
-│
-├── app/, lib/, public/        # Next.js version (WIP, not deployed)
-└── DESIGN-SYSTEM.md           # Colours, type, spacing reference
+├── app/                        # Routes: home, /solutions, /solutions/[slug], sitemap, robots
+├── components/
+│   ├── layout/                 # Site header and footer
+│   ├── sections/               # Home page sections
+│   ├── solutions/              # Solution page template and FAQ accordion
+│   ├── expert-contact/         # Contact modal and trigger
+│   └── analytics/
+├── lib/                        # Site config, page data, JSON-LD, analytics, image loader
+├── public/images/              # Images and icons
+├── next.config.ts              # Static export, basePath and image loader
+└── .github/workflows/deploy.yml
 ```
 
 ## Run locally
 
-No build step is needed. Serve the folder over HTTP rather than opening the file directly, because `components.js` uses `fetch`.
-
-```bash
-# any static server works
-npx serve .
-# or
-python -m http.server 8000
-```
-
-Then open http://localhost:8000 (or the port the server prints).
-
-## Deployment
-
-The site is deployed with **GitHub Pages** from the `main` branch, repo root. Every push to `main` redeploys within a minute or two.
-
-- `.nojekyll` stops Jekyll from processing the files.
-- The production domain is `https://fuevation.com/`. Canonical and OG URLs point there, while the GitHub Pages URL above serves as the preview.
-
-## Next.js version (work in progress)
-
-`app/`, `lib/` and `public/` contain a Next.js 16 / React 19 / Tailwind v4 port of the site. It is **not** part of the GitHub Pages deployment.
-
 ```bash
 npm install
 npm run dev     # http://localhost:3000
+```
+
+## Deployment
+
+Every push to `main` runs `.github/workflows/deploy.yml`. The workflow builds a static export (`next build` with `output: "export"`) into `out/` and publishes it to GitHub Pages.
+
+- GitHub Pages serves the site under `/fuevation-static/`. The workflow passes that path to the build as `NEXT_PUBLIC_BASE_PATH`. Locally the variable is unset, so the site runs at `/`.
+- `next/image` uses a custom loader (`lib/image-loader.ts`) that only adds the base path, because a static export has no image optimizer.
+- The production domain is `https://fuevation.com/`. Canonical and OG URLs point there, and the GitHub Pages URL above serves as a preview.
+
+To preview the static export locally (served at `/`, without the base path):
+
+```bash
 npm run build
+npx serve out
 ```
 
 ## Docs
+
+These notes were written for the earlier static HTML version of the site.
+
 
 - [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md): design tokens and UI guidelines
 - [`IMAGE-AUDIT.md`](IMAGE-AUDIT.md): image optimisation notes
