@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-poppins);
+  --color-primary: #2f3567;
+  --color-accent: #ff6f3f;
+  --color-accent-hover: #e55b2b;
+  --color-bg-light: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text-dark: #0f172a;
+  --color-text-muted: #475569;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-text-dark);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 25s linear infinite;
+}
