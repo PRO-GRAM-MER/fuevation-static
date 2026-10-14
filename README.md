@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fuevation — Electronics Value Recovery & Circular Solutions
 
-## Getting Started
+**🌐 Live site: [https://pro-gram-mer.github.io/fuevation-static/](https://pro-gram-mer.github.io/fuevation-static/)**
 
-First, run the development server:
+Marketing website for **Fuevation**, which helps brands, OEMs, retailers and enterprises get the most value out of electronics through refurbishment, liquidation, parts recovery, reverse logistics, recycling and EPR compliance.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The site is plain static HTML, CSS and JavaScript with no build step, hosted on GitHub Pages. The repo also contains a work-in-progress Next.js version, described [below](#nextjs-version-work-in-progress).
+
+---
+
+## Pages
+
+| Page | Path |
+|------|------|
+| Home | [`/`](https://pro-gram-mer.github.io/fuevation-static/) |
+| Solutions overview | [`/solutions.html`](https://pro-gram-mer.github.io/fuevation-static/solutions.html) |
+| Electronics Value Recovery | [`/solutions/electronics-value-recovery/`](https://pro-gram-mer.github.io/fuevation-static/solutions/electronics-value-recovery/) |
+| Electronics Refurbishment | [`/solutions/electronics-refurbishment/`](https://pro-gram-mer.github.io/fuevation-static/solutions/electronics-refurbishment/) |
+| Inventory Liquidation | [`/solutions/inventory-liquidation/`](https://pro-gram-mer.github.io/fuevation-static/solutions/inventory-liquidation/) |
+| Excess Inventory Management | [`/solutions/excess-inventory-management/`](https://pro-gram-mer.github.io/fuevation-static/solutions/excess-inventory-management/) |
+| EOL Inventory Management | [`/solutions/eol-inventory-management/`](https://pro-gram-mer.github.io/fuevation-static/solutions/eol-inventory-management/) |
+| Parts Harvesting | [`/solutions/parts-harvesting/`](https://pro-gram-mer.github.io/fuevation-static/solutions/parts-harvesting/) |
+| Reverse Logistics | [`/solutions/reverse-logistics/`](https://pro-gram-mer.github.io/fuevation-static/solutions/reverse-logistics/) |
+| E-Waste Management | [`/solutions/e-waste-management/`](https://pro-gram-mer.github.io/fuevation-static/solutions/e-waste-management/) |
+| Battery Recycling | [`/solutions/battery-recycling/`](https://pro-gram-mer.github.io/fuevation-static/solutions/battery-recycling/) |
+| EPR Compliance | [`/solutions/epr-compliance/`](https://pro-gram-mer.github.io/fuevation-static/solutions/epr-compliance/) |
+
+## Features
+
+- **Shared header, footer and CTA:** `components.js` fetches them from `components/*.html` at runtime and rewrites their links, so they work at the domain root or under a sub-path such as GitHub Pages.
+- **"Talk to an expert" modal:** a self-contained widget in `expert-contact/`.
+- **SEO:** canonical URLs, Open Graph and Twitter cards, JSON-LD, `sitemap.xml` and `robots.txt`.
+- **Analytics:** Google Tag Manager and GA4 event tracking via `analytics.js`.
+- **PWA manifest:** `manifest.json`.
+- **Responsive layout:** Outfit, Plus Jakarta Sans and Poppins from Google Fonts.
+
+## Project structure
+
+```
+.
+├── index.html                 # Home page
+├── index.css                  # Global / home styles
+├── main.js                    # Home page interactions
+├── components.js              # Loads shared header / footer / CTA
+├── analytics.js               # GTM + GA4 tracking
+├── components/                # header.html, footer.html, cta.html
+├── solutions.html             # Solutions overview
+├── solutions.css
+├── solutions/
+│   ├── <solution>/index.html  # One folder per solution page
+│   └── <solution>.css         # Per-page styles
+├── expert-contact/            # Contact modal (HTML / CSS / JS)
+├── assets/                    # Images, logos, icons
+├── sitemap.xml, robots.txt, manifest.json
+│
+├── app/, lib/, public/        # Next.js version (WIP, not deployed)
+└── DESIGN-SYSTEM.md           # Colours, type, spacing reference
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No build step is needed. Serve the folder over HTTP rather than opening the file directly, because `components.js` uses `fetch`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# any static server works
+npx serve .
+# or
+python -m http.server 8000
+```
 
-## Learn More
+Then open http://localhost:8000 (or the port the server prints).
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site is deployed with **GitHub Pages** from the `main` branch, repo root. Every push to `main` redeploys within a minute or two.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `.nojekyll` stops Jekyll from processing the files.
+- The production domain is `https://fuevation.com/`. Canonical and OG URLs point there, while the GitHub Pages URL above serves as the preview.
 
-## Deploy on Vercel
+## Next.js version (work in progress)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`app/`, `lib/` and `public/` contain a Next.js 16 / React 19 / Tailwind v4 port of the site. It is **not** part of the GitHub Pages deployment.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm run build
+```
+
+## Docs
+
+- [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md): design tokens and UI guidelines
+- [`IMAGE-AUDIT.md`](IMAGE-AUDIT.md): image optimisation notes
+- [`IMPLEMENTATION-AUDIT.md`](IMPLEMENTATION-AUDIT.md): implementation review
+
+---
+
+© Fuevation. All rights reserved.
